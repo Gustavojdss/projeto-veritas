@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Veritas - Validação Digital</title>
+  <link rel="stylesheet" href="estilo2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">Veritas <span style="font-size:0.5em; color:#bbb;">Secure</span></a>
+      <div class="user-info">
+        <span id="user-display">Visitante</span>
+        <button id="btn-sair" class="btn-logout">Sair</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dashboard-hero">
+      <div class="welcome-container">
+        <h1 id="bem-vindo-titulo">Bem-vindo à validação descomplicada</h1>
+        <p class="subtitle">Esqueça as filas de cartório. Valide a autenticidade de documentos digitais em segundos, direto da sua casa.</p>
+      </div>
+
+      <div class="validation-card">
+        <div class="icon-area">
+          <i class="fa-solid fa-file-signature"></i>
+        </div>
+        <h2>Validar Certificado</h2>
+        <p>Insira o código hash do documento abaixo:</p>
+        
+        <form id="form-validacao">
+          <div class="input-group">
+            <input type="text" id="codigo-certificado" placeholder="Ex: A1B2-C3D4-E5F6" required />
+            <button type="submit" class="btn-validar">
+              <i class="fa-solid fa-magnifying-glass"></i> Verificar
+            </button>
+          </div>
+        </form>
+        <p class="security-note"><i class="fa-solid fa-lock"></i> Ambiente Seguro ICP-Brasil</p>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-item">
+        <i class="fa-solid fa-house-laptop"></i>
+        <h3>100% Remoto</h3>
+        <p>Faça tudo do seu computador ou celular.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Instantâneo</h3>
+        <p>Resultado da validação sai na hora.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-gavel"></i>
+        <h3>Validade Jurídica</h3>
+        <p>Mesmo valor legal que validação presencial.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 20px; color: #666; font-size: 0.9rem;">
+    <p>&copy; 2025 Veritas. Tecnologia de ponta para sua segurança.</p>
+  </footer>
+
+  <script src="scrpit2.js"></script>
+</body>
+</html>

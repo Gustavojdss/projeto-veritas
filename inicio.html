@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Cadastro</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Painel de Cadastro -->
+    <section class="card" aria-labelledby="title-cadastro">
+      <div class="card-header">
+        <h2 id="title-cadastro">Criar conta</h2>
+        <div class="tabs" role="tablist" aria-label="Formulários">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-cadastro" id="tab-cadastro">Cadastro</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-login" id="tab-login">Login</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <form id="form-cadastro" role="tabpanel" aria-labelledby="tab-cadastro" aria-hidden="false">
+          <div>
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" class="field" type="text" placeholder="Ex: Ana Maria Souza" minlength="3" required />
+            <p class="error" id="err-nome" aria-live="polite"></p>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="numero">Número (telefone)</label>
+              <input id="numero" name="numero" class="field" type="tel" inputmode="numeric" placeholder="(11) 98765-4321" required />
+              <p class="error" id="err-numero" aria-live="polite"></p>
+            </div>
+            <div>
+              <label for="cpf">CPF</label>
+              <input id="cpf" name="cpf" class="field" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required />
+              <p class="error" id="err-cpf" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="with-icon">
+              <label for="senha">Senha</label>
+              <input id="senha" name="senha" class="field" type="password" autocomplete="new-password" minlength="8" required />
+              <button class="icon-btn" type="button" aria-label="Mostrar/ocultar senha" data-toggle="senha">👁️</button>
+              <div class="help">Mínimo 8 caracteres. Use maiúscula, minúscula, número e símbolo.</div>
+              <div class="meter" aria-hidden="true"><span id="meter-senha"></span></div>
+              <p class="error" id="err-senha" aria-live="polite"></p>
+            </div>
+            <div class="with-icon">
+              <label for="confirmar">Confirmar senha</label>
+              <input id="confirmar" name="confirmar" class="field" type="password" autocomplete="new-password" required />
+              <button class="icon-btn" type="button" aria-label="Mostrar/ocultar confirmar senha" data-toggle="confirmar">👁️</button>
+              <p class="error" id="err-confirmar" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="captcha">
+            <span id="captcha-text">Confirme que é humano: digite "<b id="captcha-code">AB12</b>"</span>
+            <input id="captcha-input" class="field" style="max-width:160px" placeholder="Código" aria-label="Digite o código mostrado" />
+          </div>
+          <p class="error" id="err-captcha" aria-live="polite"></p>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Criar conta</button>
+            <button type="reset" class="btn btn-ghost">Limpar</button>
+          </div>
+
+          <div class="badges" aria-hidden="true">
+            <span class="badge">Validação de CPF</span>
+            <span class="badge">Máscara de campos</span>
+            <span class="badge">Força da senha</span>
+            <span class="badge">Acessível</span>
+          </div>
+        </form>
+
+        <!-- Painel de Login -->
+        <form id="form-login" role="tabpanel" aria-labelledby="tab-login" aria-hidden="true" hidden>
+          <div>
+            <label for="login-cpf">CPF</label>
+            <input id="login-cpf" class="field" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required />
+            <p class="error" id="err-login-cpf" aria-live="polite"></p>
+          </div>
+          <div class="with-icon">
+            <label for="login-senha">Senha</label>
+            <input id="login-senha" class="field" type="password" autocomplete="current-password" required />
+            <button class="icon-btn2" type="button" aria-label="Mostrar/ocultar senha" data-toggle="login-senha">👁️</button>
+            <p class="error" id="err-login-senha" aria-live="polite"></p>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <button type="button" class="btn btn-ghost" id="btn-esqueci">Esqueci a senha</button>
+          </div>
+          <div class="footer"> <!--Dica: em produção, nunca armazene senhas em texto puro. Utilize hash seguro (bcrypt/Argon2) e HTTPS.</div> -->
+        </form>
+      </div>
+      <div class="footer">Este é um modelo front-end. Integre com sua API para persistência e autenticação real.</div>
+    </section>
+
+    <!-- Painel de Requisitos / Ajuda -->
+    <aside class="card" aria-labelledby="title-ajuda">
+      <div class="card-header">
+        <h2 id="title-ajuda">Boas práticas e requisitos</h2>
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <span class="ok">•</span>
+          <div>
+            <strong>Validação no cliente e no servidor</strong>
+            <div class="help">A validação em JS melhora usabilidade, mas o servidor deve validar tudo novamente.</div>
+          </div>
+        </div>
+        <div class="list-item">
+          <span class="ok">•</span>
+          <div>
+            <strong>Proteção de dados pessoais</strong>
+            <div class="help">Não logue CPF/telefones em claro. Oculte dados sensíveis nos logs.</div>
+          </div>
+        </div>
+        <div class="list-item">
+          <span class="warn">•</span>
+          <div>
+            <strong>Senhas fortes</strong>
+            <div class="help">Evite palavras comuns. Use passphrases e gerenciadores de senhas.</div>
+          </div>
+        </div>
+        <div class="list-item">
+          <span class="warn">•</span>
+          <div>
+            <strong>Taxa de tentativas e captcha</strong>
+            <div class="help">Implemente limitação por IP/usuário e desafios anti-bot no backend.</div>
+          </div>
+        </div>
+        <div class="list-item">
+          <span class="danger">•</span>
+          <div>
+            <strong>Armazenamento seguro</strong>
+            <div class="help">Use HTTPS, HSTS, cookies HttpOnly/SameSite, e hashes com salt (bcrypt/Argon2).</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+ 
+  <script>
+  // Após obter confirmação de login ou cadastro bem-sucedido, exemplo:
+localStorage.setItem('nomeUsuario', nomeDoUsuario); // nomeDoUsuario obtido da resposta do backend ou do formulário
+window.location.href = 'pag2.html';
+    </script> 
+</body>
+</html>
