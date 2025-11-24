@@ -1,6 +1,10 @@
 require('dotenv').config();
 const mysql = require('mysql2');
 
+console.log("--- TENTANDO CONECTAR ---");
+console.log("HOST:", process.env.DB_HOST);
+console.log("USER:", process.env.DB_USER);
+
 const pool = mysql.createPool({
   // AQUI ESTAVA O ERRO: Antes estava fixo 'localhost' ou '127.0.0.1'
   // Agora ele vai ler a variável que configuramos no Railway:
@@ -16,3 +20,4 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool.promise();
+
