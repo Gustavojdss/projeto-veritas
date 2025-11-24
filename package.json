@@ -1,4 +1,20 @@
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node servidor.js"
-},
+{
+  "name": "site-veritas",
+  "version": "1.0.0",
+  "description": "Meu site de validacao",
+  "main": "servidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node servidor.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.3"
+  }
+}
