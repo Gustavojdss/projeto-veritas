@@ -46,4 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = false;
         }, 2000); // Espera 2 segundos para parecer real
     });
+
 });
