@@ -18,6 +18,10 @@ app.use(express.static(__dirname));
 // ... (resto das rotas /api/usuarios, etc.)
 app.use(express.json()); // Processa corpo das requisições como JSON
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/inicio.html');
+});
+
 // --- ROTAS DA API ---
 
 // 1. Rota de Cadastro de Novo Usuário (POST /api/usuarios)
@@ -105,4 +109,5 @@ app.post('/api/login', async (req, res) => {
 // Inicia o servidor
 app.listen(port, () => {
   console.log(`API rodando em http://localhost:${port}`);
+
 });
