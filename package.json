@@ -2,6 +2,9 @@
   "name": "site-veritas",
   "version": "1.0.0",
   "description": "Meu site de validacao",
+  "engines": {
+    "node": "18.x"
+  },
   "main": "servidor.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
